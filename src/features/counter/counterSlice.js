@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const savedValue = localStorage.getItem("counter")
+
 const initialState = {
-    value: 0 
+    value: savedValue ? Number(savedValue) : 0
 }
 
 const counterSlice = createSlice({

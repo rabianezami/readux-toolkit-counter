@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {
   decrement,
@@ -14,6 +14,12 @@ import AmountAdder from "./components/AmountAdder"
 
 function App() {
   const count = useSelector((state) => state.counter.value)
+
+    useEffect(() => {
+    localStorage.setItem("counter", count)
+  }, [count])
+
+  
   const dispatch = useDispatch()
 
   const [amount, setAmount] = useState("")
